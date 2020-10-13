@@ -1,6 +1,7 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:testing_app01/feed_screen.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({
@@ -23,12 +24,22 @@ class _HomePageState extends State<HomePage> {
 
   int _selectedIndex = 0;
 
+  static List<Widget> _screens = <Widget>[
+    FeedScreen(),
+    Container(color: Colors.amberAccent,),
+    Container(color: Colors.blueAccent,),
+    Container(color: Colors.greenAccent,),
+    Container(color: Colors.deepPurpleAccent,),
+    Container(color: Colors.cyanAccent,),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
 
-      body: Container(
-        color: Colors.lightBlue,
+      body: IndexedStack(
+        index: _selectedIndex,
+        children: _screens,
       ),
       bottomNavigationBar: BottomNavigationBar(//홉 하단에 아이콘 생성
           showSelectedLabels: false,  //선택된 레이블의 아이콘을 보여줄것이냐
