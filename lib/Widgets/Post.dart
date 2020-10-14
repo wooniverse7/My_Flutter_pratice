@@ -18,9 +18,9 @@ class Post extends StatelessWidget {
       size = MediaQuery.of(context).size;//사용하는 디바이스 화면 size
 
     return CachedNetworkImage(
-      imageUrl: 'https://picsum.photos/id/$index/2000/3000',
+      imageUrl: 'https://picsum.photos/id/$index/200/200',
       placeholder: (BuildContext context, String url,){
-        return MyProgressIndicator();
+        return MyProgressIndicator(containalSize: size.width,);
       },
       imageBuilder: (BuildContext context, ImageProvider imageprovider){
         return AspectRatio(
